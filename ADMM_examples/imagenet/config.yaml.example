@@ -1,0 +1,331 @@
+#config example:
+#Authors: Shaokai, Jan
+#sample_argument:
+#type || default value
+#value
+#print_freq  int || 10  
+#resume      bool || False     *resume from checkpoint
+#gpu         str || all      * gpu id to use
+#lr          float || 0.1      *learning rate
+#arch        str  || resnet18  *architecture
+#save_model  str  || saved_model.pt * filename to saved model
+#load_model  str  || load_model.pt  * filename to load model
+#workers     int  || 16        * number of threads for loading images
+#logging     bool || False     * whether to log files
+#log_dir     str  || logs      * destination folder to drop log file
+#smooth_eps  float|| 0.0       * smoothing rate [0.0, 1.0], set to 0.0 to disable
+#alpha       float|| 0.0       * for mixup training, lambda = Beta(alpha, alpha) distribution. Set to 0.0 to disable
+#                              * chosen value of alpha in Bag of Tricks is 0.2, and increase # of training epochs by 67%
+#epochs      int  || 200       * number of training epochs for chosen stage
+#warmup_epochs  int || 0       * number of epochs for lr warmup
+#warmup_lr    float || 0.0001  * initial lr before warmup
+#optimizer   str  || sgd       * optimizer for the chosen stage
+#lr_scheduler str || default,cosine  * learning rate scheduler
+#admm_epoch  int  || 20        * how many epochs required to update z and u
+#rho        float || 0.001     * regularization strength
+#sparsity_type str || [irregular,column,filter,bn_filter]     * sparsity type
+#multi_rho   bool  || False    * whether to use multi rho in admm stage
+#verbose    bool  || False     * whether to print convergence info
+#masked_progressive bool || False * whether to use masked progressive
+
+general:
+ data:
+   /home/lthpc/datasets/ImageNet
+ pretrained:
+   True
+ start_epoch:
+   0
+ momentum:
+   0.9
+ weight_decay:
+   1e-4
+ batch_size:
+   256
+ world_size:
+   -1
+ rank:
+   -1
+ dist_url:
+   'tcp://224.66.41.62:23456'
+ dist_backend:
+   nccl
+ seed:
+   0
+ gpu:
+   all
+ multiprocessing_distributed:
+   False
+ sparsity_type: 
+  irregular
+ print_freq:
+  10 
+ resume:  
+  False 
+ arch: 
+  resnet50
+ workers: 
+  16
+ logging: 
+  False
+ log_dir: 
+  logs
+ smooth_eps:
+  0.0
+ alpha:
+  0.0
+ verify:
+  False
+pretrain:
+ lr:
+  0.1
+ epochs: 
+  1
+ warmup_lr:
+  0.0001
+ warmup_epochs: 
+  0
+ save_model: 
+  alexnet_bn_pretrained.pt
+ optimizer:
+  sgd
+ lr_scheduler: 
+  cosine
+admm:
+ lr:  
+  0.01
+ epochs: 
+  120
+ save_model: 
+  resnet50_admm.pt
+ load_model: 
+
+ optimizer:
+  sgd
+ lr_scheduler: 
+  default
+ admm_epoch: 
+  10
+ rho: 
+  0.001
+ multi_rho: 
+  True
+ masked_progressive: 
+  False
+ verbose:
+  False
+retrain:
+ lr:  
+  0.01
+ epochs:
+  200
+ warmup_lr:
+  0.0001
+ warmup_epochs: 
+  0
+ save_model: 
+  alexnet_retrained.pt
+ load_model:
+  alexnet_admm.pt
+ optimizer: 
+  sgd
+ lr_scheduler:
+  default
+ masked_progressive: 
+  False 
+resnet18:
+#20 conv layers, use bnx instead of convx for bn_filter pruning
+#floats
+ prune_ratios:
+  bn1.weight:
+   0.9375
+  bn2.weight:
+   0.9375
+  bn3.weight:
+   0.9375
+  bn4.weight:
+   0.9375
+  bn5.weight:
+   0.9375
+  bn6.weight:
+   0.9375
+  bn7.weight:
+   0.9375
+  bn8.weight:
+   0.9375
+  bn9.weight:
+   0.9375
+  bn10.weight:
+   0.9375
+  bn11.weight:
+   0.9375
+  bn12.weight:
+   0.9375
+  bn13.weight:
+   0.9375
+  bn14.weight:
+   0.9375
+  bn15.weight:
+   0.9375
+  bn16.weight:
+   0.9375
+  bn17.weight:
+   0.9375
+  bn18.weight:
+   0.9375
+  bn19.weight:
+   0.9375
+  bn20.weight:
+   0.9375
+resnet50:
+#20 conv layers, use bnx instead of convx for bn_filter pruning
+#floats
+ prune_ratios:
+  conv1.weight:
+   0.0
+  conv2.weight:
+   0.75
+  conv3.weight:
+   0.75
+  conv4.weight:
+   0.75
+  conv5.weight:
+   0.75
+  conv6.weight:
+   0.75
+  conv7.weight:
+   0.75
+  conv8.weight:
+   0.75
+  conv9.weight:
+   0.75
+  conv10.weight:
+   0.75
+  conv11.weight:
+   0.75
+  conv12.weight:
+   0.75
+  conv13.weight:
+   0.75
+  conv14.weight:
+   0.75
+  conv15.weight:
+   0.75
+  conv16.weight:
+   0.75
+  conv17.weight:
+   0.75
+  conv18.weight:
+   0.75
+  conv19.weight:
+   0.75
+  conv20.weight:
+   0.75
+  conv21.weight:
+   0.75
+  conv22.weight:
+   0.75
+  conv23.weight:
+   0.75
+  conv24.weight:
+   0.75
+  conv25.weight:
+   0.75
+  conv26.weight:
+   0.75
+  conv27.weight:
+   0.75
+  conv28.weight:
+   0.75
+  conv29.weight:
+   0.75
+  conv30.weight:
+   0.75
+  conv31.weight:
+   0.75
+  conv32.weight:
+   0.75
+  conv33.weight:
+   0.75
+  conv34.weight:
+   0.75
+  conv35.weight:
+   0.75
+  conv36.weight:
+   0.75
+  conv37.weight:
+   0.75
+  conv38.weight:
+   0.75
+  conv39.weight:
+   0.75
+  conv40.weight:
+   0.75
+  conv41.weight:
+   0.75
+  conv42.weight:
+   0.75
+  conv43.weight:
+   0.75
+  conv44.weight:
+   0.75
+  conv45.weight:
+   0.75
+  conv46.weight:
+   0.75
+  conv47.weight:
+   0.75
+  conv48.weight:
+   0.75
+  conv49.weight:
+   0.75
+  conv50.weight:
+   0.75
+  conv51.weight:
+   0.75
+  conv52.weight:
+   0.75
+  conv53.weight:
+   0.75
+
+vgg16:
+#20 conv layers, use bnx instead of convx for bn_filter pruning
+#floats
+ prune_ratios:
+  bn1.weight:
+   0.9375
+  bn2.weight:
+   0.9375
+  bn3.weight:
+   0.9375
+  bn4.weight:
+   0.9375
+  bn5.weight:
+   0.9375
+  bn6.weight:
+   0.9375
+  bn7.weight:
+   0.9375
+  bn8.weight:
+   0.9375
+  bn9.weight:
+   0.9375
+  bn10.weight:
+   0.9375
+  bn11.weight:
+   0.9375
+  bn12.weight:
+   0.9375
+  bn13.weight:
+   0.9375
+alexnet_bn:
+  prune_ratios:
+   conv1.weight:
+     0.16
+   conv2.weight:
+     0.65
+   conv3.weight:
+     0.67
+   conv4.weight:
+     0.66
+   conv5.weight:
+     0.66

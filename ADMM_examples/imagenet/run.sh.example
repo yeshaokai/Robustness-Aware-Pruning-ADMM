@@ -1,0 +1,5 @@
+admm compression in natural setting
+
+#python -u main.py --config_file config.yaml --stage pretrain
+#python -u main.py --config_file config.yaml --stage admm
+#python -u main.py --config_file config.yaml --stage retrain

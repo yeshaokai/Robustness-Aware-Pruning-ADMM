@@ -1,0 +1,7 @@
+data
+*.pyc
+*~
+*.pt
+*.out
+*.zip
+*.tar

@@ -1,0 +1,197 @@
+#config example:
+#Authors: Shaokai, Jan
+#sample_argument:
+#type || default value
+#value
+#print_freq  int || 10  
+#resume      bool || False     *resume from checkpoint
+#gpu_id      int || null      * gpu id to use
+#lr          float || 0.1      *learning rate
+#arch        str  || resnet18  *architecture
+#save_model  str  || saved_model.pt * filename to saved model
+#load_model  str  || load_model.pt  * filename to load model
+#workers     int  || 16        * number of threads for loading images
+#logging     bool || False     * whether to log files
+#log_dir     str  || logs      * destination folder to drop log file
+#smooth_eps  float|| 0.0       * smoothing rate [0.0, 1.0], set to 0.0 to disable
+#alpha       float|| 0.0       * for mixup training, lambda = Beta(alpha, alpha) distribution. Set to 0.0 to disable
+#                              * chosen value of alpha in Bag of Tricks is 0.2, and increase # of training epochs by 67%
+#epochs      int  || 200       * number of training epochs for chosen stage
+#warmup_epochs      int  || 0       * number of epochs for lr warmup
+#warmup_lr      float  || 0.0001       * initial lr before warmup
+#optimizer   str  || sgd       * optimizer for the chosen stage
+#lr_scheduler str || default,cosine  * learning rate scheduler
+#admm_epoch  int  || 20        * how many epochs required to update z and u
+#rho        float || 0.001     * regularization strength
+#sparsity_type str || [irregular,column,filter,bn_filter]     * sparsity type
+#multi_rho   bool  || False    * whether to use multi rho in admm stage
+#verbose    bool  || False     * whether to print convergence info
+#masked_progressive bool || False * whether to use masked progressive
+
+adv:
+  epsilon:
+    8.0    # will be divided by 255 in the adv_train.py
+  num_steps:
+    10
+  step_size:
+    2.0   # will be divided by 255 in the adv_train.py
+  random_start:
+    True
+  loss_func:
+    xent
+  width_multiplier:
+    1
+  init_func:
+    default
+general:
+ sparsity_type: 
+  bn_filter 
+ print_freq:
+  10 
+ resume:  
+  False 
+ gpu_id:  
+  1
+ arch: 
+  vgg16
+ workers: 
+  16
+ logging: 
+  False
+ log_dir: 
+  logs
+ smooth_eps:
+  0.0
+ alpha:
+  0.0
+pretrain:
+ lr:
+  0.1
+ epochs: 
+  200
+ warmup_lr:
+  0.0001
+ warmup_epochs: 
+  0
+ save_model: 
+  vgg16_pretrained.pt
+ optimizer:
+  sgd
+ lr_scheduler: 
+  cosine
+admm:
+ lr:  
+  0.01
+ epochs: 
+  200
+ save_model: 
+  vgg16_admm.pt
+ load_model: 
+  vgg16_pretrained.pt 
+ optimizer:
+  sgd
+ lr_scheduler: 
+  default
+ admm_epoch: 
+  20
+ rho: 
+  0.001
+ multi_rho: 
+  True
+ masked_progressive: 
+  False
+ verbose:
+  False
+retrain:
+ lr:  
+  0.01
+ epochs:
+  200
+ warmup_lr:
+  0.0001
+ warmup_epochs: 
+  0
+ save_model: 
+  vgg16_retrained.pt
+ load_model:
+  vgg16_admm.pt
+ optimizer: 
+  sgd
+ lr_scheduler:
+  default
+ masked_progressive: 
+  False 
+resnet18:
+#20 conv layers, use bnx instead of convx for bn_filter pruning
+#floats
+ prune_ratios:
+  bn1.weight:
+   0.9375
+  bn2.weight:
+   0.9375
+  bn3.weight:
+   0.9375
+  bn4.weight:
+   0.9375
+  bn5.weight:
+   0.9375
+  bn6.weight:
+   0.9375
+  bn7.weight:
+   0.9375
+  bn8.weight:
+   0.9375
+  bn9.weight:
+   0.9375
+  bn10.weight:
+   0.9375
+  bn11.weight:
+   0.9375
+  bn12.weight:
+   0.9375
+  bn13.weight:
+   0.9375
+  bn14.weight:
+   0.9375
+  bn15.weight:
+   0.9375
+  bn16.weight:
+   0.9375
+  bn17.weight:
+   0.9375
+  bn18.weight:
+   0.9375
+  bn19.weight:
+   0.9375
+  bn20.weight:
+   0.9375
+vgg16:
+#20 conv layers, use bnx instead of convx for bn_filter pruning
+#floats
+ prune_ratios:
+  bn1.weight:
+   0.9375
+  bn2.weight:
+   0.9375
+  bn3.weight:
+   0.9375
+  bn4.weight:
+   0.9375
+  bn5.weight:
+   0.9375
+  bn6.weight:
+   0.9375
+  bn7.weight:
+   0.9375
+  bn8.weight:
+   0.9375
+  bn9.weight:
+   0.9375
+  bn10.weight:
+   0.9375
+  bn11.weight:
+   0.9375
+  bn12.weight:
+   0.9375
+  bn13.weight:
+   0.9375
