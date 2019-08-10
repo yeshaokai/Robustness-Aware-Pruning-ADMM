@@ -125,73 +125,73 @@ resnet18:
 #20 conv layers, use bnx instead of convx for bn_filter pruning
 #floats
  prune_ratios:
-  bn1.weight:
+  conv1.weight:
    0.9375
-  bn2.weight:
+  conv2.weight:
    0.9375
-  bn3.weight:
+  conv3.weight:
    0.9375
-  bn4.weight:
+  conv4.weight:
    0.9375
-  bn5.weight:
+  conv5.weight:
    0.9375
-  bn6.weight:
+  conv6.weight:
    0.9375
-  bn7.weight:
+  conv7.weight:
    0.9375
-  bn8.weight:
+  conv8.weight:
    0.9375
-  bn9.weight:
+  conv9.weight:
    0.9375
-  bn10.weight:
+  conv10.weight:
    0.9375
-  bn11.weight:
+  conv11.weight:
    0.9375
-  bn12.weight:
+  conv12.weight:
    0.9375
-  bn13.weight:
+  conv13.weight:
    0.9375
-  bn14.weight:
+  conv14.weight:
    0.9375
-  bn15.weight:
+  conv15.weight:
    0.9375
-  bn16.weight:
+  conv16.weight:
    0.9375
-  bn17.weight:
+  conv17.weight:
    0.9375
-  bn18.weight:
+  conv18.weight:
    0.9375
-  bn19.weight:
+  conv19.weight:
    0.9375
-  bn20.weight:
+  conv20.weight:
    0.9375
 vgg16:
 #20 conv layers, use bnx instead of convx for bn_filter pruning
 #floats
  prune_ratios:
-  bn1.weight:
+  conv1.weight:
    0.9375
-  bn2.weight:
+  conv2.weight:
    0.9375
-  bn3.weight:
+  conv3.weight:
    0.9375
-  bn4.weight:
+  conv4.weight:
    0.9375
-  bn5.weight:
+  conv5.weight:
    0.9375
-  bn6.weight:
+  conv6.weight:
    0.9375
-  bn7.weight:
+  conv7.weight:
    0.9375
-  bn8.weight:
+  conv8.weight:
    0.9375
-  bn9.weight:
+  conv9.weight:
    0.9375
-  bn10.weight:
+  conv10.weight:
    0.9375
-  bn11.weight:
+  conv11.weight:
    0.9375
-  bn12.weight:
+  conv12.weight:
    0.9375
-  bn13.weight:
+  conv13.weight:
    0.9375
