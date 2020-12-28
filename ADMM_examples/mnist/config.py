@@ -36,7 +36,7 @@ class Config:
                 self.log_dir = raw_dict['general']['log_dir']
                 try:
                     self.smooth_eps = raw_dict['general']['smooth_eps']
-                    self.alpxha = raw_dict['general']['alpha']
+                    self.alpha = raw_dict['general']['alpha']
                 except:
                     print ('no fancy stuff for mnist')
                 self.sparsity_type = raw_dict['general']['sparsity_type']                
