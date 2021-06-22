@@ -13,7 +13,7 @@ Shaokai Ye, Xiaoyu Feng, Tianyun Zhang, Xiaolong Ma, Sheng Lin, Zhengang Li, Kai
 
 ```
 @InProceedings{Ye_2019_ICCV,
-  author = {Ye, Shaokai and Xu, Kaidi and Liu, Sijia and Cheng, Hao and Lambrechts, Jan-Henrik and Zhang, Huan and Zhou,  Aojun and Ma, Kaisheng and Wang, Yanzhi and Lin, Xue},
+  author = {Ye, Shaokai and Xu, Kaidi and Liu, Sijia  and Lambrechts, Jan-Henrik and Zhang, Huan and Zhou,  Aojun and Ma, Kaisheng and Wang, Yanzhi and Lin, Xue},
   title = {Adversarial Robustness vs. Model Compression, or Both?},
   booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
   month = {October},
