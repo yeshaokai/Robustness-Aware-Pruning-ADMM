@@ -4,7 +4,7 @@ Adversarial Robustness vs Model Compression, or Both?
 In this work,  This paper first proposes a framework of concurrent adversarial training and different weight pruning that enables model compression while still preserving the adversarial robustness and essentially tackles the dilemma of adversarial training.  
 
 Cite this work:
-Shaokai Ye\*, Kaidi Xu\*, Sijia Liu, Hao Cheng, Jan-Henrik Lambrechts, Huan Zhang, Aojun Zhou, Kaisheng Ma, Yanzhi Wang, Xue Lin. ["Adversarial Robustness vs Model Compression, or Both?"](http://openaccess.thecvf.com/content_ICCV_2019/papers/Ye_Adversarial_Robustness_vs._Model_Compression_or_Both_ICCV_2019_paper.pdf), ICCV 2019. (\* Equal Contribution)
+Shaokai Ye\*, Kaidi Xu\*, Sijia Liu,  Jan-Henrik Lambrechts, Huan Zhang, Aojun Zhou, Kaisheng Ma, Yanzhi Wang, Xue Lin. ["Adversarial Robustness vs Model Compression, or Both?"](http://openaccess.thecvf.com/content_ICCV_2019/papers/Ye_Adversarial_Robustness_vs._Model_Compression_or_Both_ICCV_2019_paper.pdf), ICCV 2019. (\* Equal Contribution)
 
 and
 
